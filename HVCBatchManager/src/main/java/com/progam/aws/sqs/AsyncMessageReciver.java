@@ -9,6 +9,7 @@ import javax.jms.TextMessage;
 
 import com.amazon.sqs.javamessaging.SQSConnection;
 import com.amazon.sqs.javamessaging.SQSConnectionFactory;
+import com.amazonaws.util.json.JSONArray;
 import com.amazonaws.util.json.JSONException;
 import com.amazonaws.util.json.JSONObject;
 
@@ -53,14 +54,15 @@ public class AsyncMessageReciver {
 		public static String getFileName(Message message) throws JSONException {
 			
 			TextMessage txtMessage = (TextMessage) message;
-			// JSONObject records = new JSONObject(txtMessage);
-			// JSONArray recordArray = records.getJSONArray("Records");
-			// JSONObject record = new JSONObject(recordArray.get(0).toString());
-			// JSONObject s3 = new JSONObject(record.get("s3").toString());
-			// JSONObject object = new JSONObject(s3.get("object").toString());
-			// fileName = object.get("key").toString();
-			String fileName = new JSONObject(new JSONObject(new JSONObject(new JSONObject(txtMessage).getJSONArray("Records").get(0)
-					.toString()).get("s3").toString()).get("object").toString()).get("key").toString();
+			JSONObject records = new JSONObject(txtMessage);
+			JSONArray recordArray = records.getJSONArray("Records");
+			JSONObject record = new JSONObject(recordArray.get(0).toString());
+			JSONObject s3 = new JSONObject(record.get("s3").toString());
+			JSONObject object = new JSONObject(s3.get("object").toString());
+			String fileName = object.get("key").toString();
+			
+			// String fileName = new JSONObject(new JSONObject(new JSONObject(new JSONObject(txtMessage).getJSONArray("Records").get(0)
+			// .toString()).get("s3").toString()).get("object").toString()).get("key").toString();
 			System.out.println(fileName);
 			
 			return fileName;
