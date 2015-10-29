@@ -23,7 +23,8 @@
 								<!-- add Main-Class to manifest file -->
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.program.aws.Hello</mainClass>
+									<!--<mainClass>com.program.aws.S3LambdaEvent</mainClass>-->
+									<mainClass>com.program.aws.SNSLambdaEvent</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
