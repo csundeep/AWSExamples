@@ -1,0 +1,31 @@
+{
+  "Records": [
+    {
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:EXAMPLE",
+      "EventSource": "aws:sns",
+      "Sns": {
+        "SignatureVersion": "1",
+        "Timestamp": "1970-01-01T00:00:00.000Z",
+        "Signature": "EXAMPLE",
+        "SigningCertUrl": "EXAMPLE",
+        "MessageId": "95df01b4-ee98-5cb9-9903-4c221d41eb5e",
+        "Message" : "{\"Records\":[{\"eventVersion\":\"2.0\",\"eventSource\":\"aws:s3\",\"awsRegion\":\"us-east-1\",\"eventTime\":\"2015-10-29T11:35:33.941Z\",\"eventName\":\"ObjectCreated:Put\",\"userIdentity\":{\"principalId\":\"A1QFLJL9A1Y0YS\"},\"requestParameters\":{\"sourceIPAddress\":\"199.195.244.4\"},\"responseElements\":{\"x-amz-request-id\":\"99184FF1CE047239\",\"x-amz-id-2\":\"0j2M3RIC3RS/WYjAUh5opPUiZMqebwks9QrliVCxR4P/A4ML2rIPtlGL8zhGgurE\"},\"s3\":{\"s3SchemaVersion\":\"1.0\",\"configurationId\":\"testsns\",\"bucket\":{\"name\":\"testingsnsapplication\",\"ownerIdentity\":{\"principalId\":\"A1QFLJL9A1Y0YS\"},\"arn\":\"arn:aws:s3:::testingsnsapplication\"},\"object\":{\"key\":\"121_SUBMITTED.csv\",\"size\":401,\"eTag\":\"e88f4d60a7b6cfcfedb7f63b6c246348\",\"sequencer\":\"0056320485E091F1E7\"}}}]}",
+        "MessageAttributes": {
+          "Test": {
+            "Type": "String",
+            "Value": "TestString"
+          },
+          "TestBinary": {
+            "Type": "Binary",
+            "Value": "TestBinary"
+          }
+        },
+        "Type": "Notification",
+        "UnsubscribeUrl": "EXAMPLE",
+        "TopicArn": "arn:aws:sns:EXAMPLE",
+        "Subject": "TestInvoke"
+      }
+    }
+  ]
+}
