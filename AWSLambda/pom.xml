@@ -43,8 +43,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
-			<artifactId>aws-java-sdk-s3</artifactId>
-			<version>1.10.11</version>
+			<artifactId>aws-java-sdk</artifactId>
+			<version>1.10.30</version>
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
