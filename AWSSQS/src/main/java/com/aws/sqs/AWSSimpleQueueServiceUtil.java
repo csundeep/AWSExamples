@@ -36,10 +36,8 @@ public class AWSSimpleQueueServiceUtil {
 	 */
 	private AWSSimpleQueueServiceUtil() {
 		try {
-			Properties properties = new Properties();
-			properties.load(new FileInputStream("D:/AwsCredentials.properties"));
-			this.credentials = new BasicAWSCredentials(properties.getProperty("accessKey"), properties.getProperty("secretKey"));
-			this.simpleQueue = "HVCQueue";
+			this.credentials = new BasicAWSCredentials("AKIAIRT54AYQCXMK4U4A", "lGvsmuNRFGPIZCmXFJF8tOxeC5Z9xnCDVcsrQ5Xy");
+			this.simpleQueue = "hvc-sqs";
 			
 			this.sqs = new AmazonSQSClient(this.credentials);
 			/**
@@ -50,7 +48,8 @@ public class AWSSimpleQueueServiceUtil {
 			 *
 			 * Overrides the default endpoint for this client ("sqs.us-east-1.amazonaws.com")
 			 */
-			this.sqs.setEndpoint("https://sqs.us-east-1.amazonaws.com");
+			this.sqs.setEndpoint("https://sqs.us-east-1.amazonaws.com/640562172725");
+			
 			/**
 			   You can use this in your web app where    AwsCredentials.properties is stored in web-inf/classes
 			 */
@@ -141,6 +140,13 @@ public class AWSSimpleQueueServiceUtil {
 	}
 	
 	public static void main(String[] args) {
+		AWSSimpleQueueServiceUtil awssqsUtil = AWSSimpleQueueServiceUtil.getInstance();
+		String queueUrl = awssqsUtil.getQueueUrl(awssqsUtil.getQueueName());
+		System.out.println("queueUrl : " + queueUrl);
+		List<Message> messages = awssqsUtil.getMessagesFromQueue(queueUrl);
+		for (Message message : messages) {
+			System.out.println(message.getBody());
+		}
 		
 	}
 	
