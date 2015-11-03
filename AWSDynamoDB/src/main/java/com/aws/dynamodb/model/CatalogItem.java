@@ -13,7 +13,7 @@ public class CatalogItem {
 	private String ISBN;
 	private Set<String> bookAuthors;
 
-	@DynamoDBHashKey(attributeName = "Id")
+	@DynamoDBHashKey(attributeName = "id")
 	public Integer getId() {
 		return id;
 	}
