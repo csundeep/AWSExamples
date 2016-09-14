@@ -18,7 +18,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.program.aws.Hello</mainClass>
+                  <mainClass>com.program.aws.SNSLambdaEvent</mainClass>
                 </transformer>
               </transformers>
             </configuration>
