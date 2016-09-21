@@ -16,6 +16,7 @@ public class AWSDownload {
 	private static String bucketName = "hvc-batch";
 	
 	public static void main(String[] args) throws IOException {
+		
 		AmazonS3 s3Client = S3Configuration.getS3Client();
 		try {
 			System.out.println("Downloading an object");
