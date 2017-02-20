@@ -17,8 +17,9 @@ public class AWSDownload {
 	
 	public static void main(String[] args) throws IOException {
 		
-		AmazonS3 s3Client = S3Configuration.getS3Client();
+		
 		try {
+			AmazonS3 s3Client = S3Configuration.getS3Client();
 			System.out.println("Downloading an object");
 			List<String> exsitKeys = new ArrayList<String>();
 			for (S3ObjectSummary s3ObjectSummary : s3Client.listObjects(bucketName).getObjectSummaries()) {

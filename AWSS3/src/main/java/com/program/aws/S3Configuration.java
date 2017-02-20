@@ -14,7 +14,7 @@ import com.amazonaws.services.s3.model.PutObjectResult;
 public class S3Configuration {
 	
 	public static AmazonS3 getS3Client() {
-		AWSCredentials credentials = new BasicAWSCredentials("AKIAJB2IT6DSGPF4QIUQ", "DGkvxF4skIq2BeLIzbIDwyqPaejYm+6l+Joenn+w");
+		AWSCredentials credentials = new BasicAWSCredentials("AKIAJQDRCDMGPKLM5UMQ", "kQMvfOg3WFFStc92zp7kY6UTEB3B6c2W2otGuax4");
 		AmazonS3 s3client = new AmazonS3Client(credentials);
 		return s3client;
 	}
