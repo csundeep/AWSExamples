@@ -4,16 +4,15 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 import com.aws.dynamodb.model.CatalogItem;
 
 public class ObjectPersistenceCRUDExample {
 
-	static AmazonDynamoDBClient client = new AmazonDynamoDBClient(
-			new BasicAWSCredentials("AKIAJB2IT6DSGPF4QIUQ", "DGkvxF4skIq2BeLIzbIDwyqPaejYm+6l+Joenn+w"));
+	private final static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.defaultClient();
 
 	public static void main(String[] args) throws IOException {
 		testCRUDOperations();
@@ -45,8 +44,8 @@ public class ObjectPersistenceCRUDExample {
 		System.out.println(itemRetrieved);
 
 		// Retrieve the updated item.
-		DynamoDBMapperConfig config = new DynamoDBMapperConfig(DynamoDBMapperConfig.ConsistentReads.CONSISTENT);
-		CatalogItem updatedItem = mapper.load(CatalogItem.class, 601, config);
+		DynamoDBMapperConfig config = new DynamoDBMapperConfig(DynamoDBMapperConfig.ConsistentReads.EVENTUAL);
+		CatalogItem updatedItem = mapper.load(CatalogItem.class, 602, config);
 		System.out.println("Retrieved the previously updated item:");
 		System.out.println(updatedItem);
 
